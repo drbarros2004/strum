@@ -194,10 +194,10 @@ function _drawHUD() {
   // Indicador de carregamento enquanto samples baixam
   if (AudioEngine._sampler && !AudioEngine._ready) {
     fill(200, 160, 60);
-    text("Carregando samples de áudio...", NECK.xStart, CANVAS_H - 14);
+    text("Loading audio samples...", NECK.xStart, CANVAS_H - 14);
   } else {
     fill(...COLORS.hint);
-    text("?: ajuda   |   ← → / 1-6: acorde   |   ↑ ↓: roda   |   V: braço/violão   |   arraste nas cordas: tocar",
+    text("?: help   |   ← → / 1-6: chord   |   ↑ ↓: key   |   V: neck/guitar   |   drag across the strings: play",
          NECK.xStart, CANVAS_H - 14);
   }
   pop();
@@ -238,7 +238,7 @@ function _drawHelpCard() {
   fill(...COLORS.menuActive);
   textSize(22);
   textStyle(BOLD);
-  text("Simulador de Violão", CANVAS_W / 2, y + 26);
+  text("strum", CANVAS_W / 2, y + 26);
   textStyle(NORMAL);
 
   // o que é
@@ -247,22 +247,22 @@ function _drawHelpCard() {
   textSize(14);
   const tx = x + 40;
   let ty = y + 74;
-  text("Toque os acordes do campo harmônico e veja", tx, ty); ty += 22;
-  text("(e ouça) as cordas vibrarem.", tx, ty); ty += 38;
+  text("Play the chords of a key and watch", tx, ty); ty += 22;
+  text("(and hear) the strings vibrate.", tx, ty); ty += 38;
 
   // como jogar
   fill(...COLORS.hint); textSize(12);
-  text("COMO JOGAR", tx, ty); ty += 24;
+  text("HOW TO PLAY", tx, ty); ty += 24;
   fill(...COLORS.menuText); textSize(14);
   const lh = 28;
-  text("← →  ou  1-6    trocar de acorde", tx, ty); ty += lh;
-  text("↑ ↓              trocar de campo (roda)", tx, ty); ty += lh;
-  text("V               alterna braço / violão", tx, ty); ty += lh;
-  text("arraste o mouse sobre as cordas para tocar", tx, ty);
+  text("← →  or  1-6    change chord", tx, ty); ty += lh;
+  text("↑ ↓             change key (wheel)", tx, ty); ty += lh;
+  text("V               toggle neck / full guitar", tx, ty); ty += lh;
+  text("drag the mouse across the strings to play", tx, ty);
 
   // rodapé
   fill(...COLORS.hint); textSize(12);
   textAlign(CENTER, TOP);
-  text("clique em qualquer lugar ou Esc para fechar", CANVAS_W / 2, y + h - 28);
+  text("click anywhere or press Esc to close", CANVAS_W / 2, y + h - 28);
   pop();
 }

@@ -1,20 +1,17 @@
-# Dependências (caso use npm no futuro)
 node_modules/
 
-# Tooling de dev (screenshot loop do Claude) — não faz parte da entrega
+# Local dev tooling (not part of the app)
 package.json
 package-lock.json
 dev/
 shots/
-
-# Companion visual do brainstorming (efêmero)
 .superpowers/
 docs/superpowers/
 
-# Sistema
+# OS
 .DS_Store
 Thumbs.db
 
-# Editores
+# Editors
 .vscode/*
 !.vscode/settings.json

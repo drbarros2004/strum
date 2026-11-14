@@ -25,16 +25,16 @@ const AudioEngine = {
           B3: "B3.mp3",
           E4: "E4.mp3",
         },
-        baseUrl: "https://nbrosowsky.github.io/tonejs-instruments/samples/guitar-acoustic/",
+        baseUrl: "assets/samples/guitar-acoustic/",
         release: AUDIO.releaseSec, // fade suave no triggerRelease (troca de acorde)
         onload: () => {
           this._ready = true;
-          console.log("[AudioEngine] Sampler pronto — guitar-acoustic");
+          console.log("[AudioEngine] Sampler ready — guitar-acoustic");
         },
       }).connect(this._gain);
     } catch (e) {
       this._sampler = null;
-      console.warn("[AudioEngine] falha ao inicializar Tone.js:", e);
+      console.warn("[AudioEngine] failed to initialize Tone.js:", e);
     } finally {
       this._initializing = false;
     }
@@ -43,7 +43,7 @@ const AudioEngine = {
   playNote(stringIndex, noteName, velocity) {
     if (!this._ready) return;
     if (stringIndex < 0 || stringIndex > 5) {
-      console.warn("[AudioEngine] índice de corda inválido:", stringIndex);
+      console.warn("[AudioEngine] invalid string index:", stringIndex);
       return;
     }
     try {
@@ -51,7 +51,7 @@ const AudioEngine = {
       this._sampler.triggerAttack(noteName, Tone.now(), v);
       this._ringing[stringIndex] = noteName;
     } catch (e) {
-      console.warn("[AudioEngine] playNote falhou:", { stringIndex, noteName, velocity }, e);
+      console.warn("[AudioEngine] playNote failed:", { stringIndex, noteName, velocity }, e);
     }
   },
 
